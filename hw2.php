@@ -1,12 +1,44 @@
 <?php
 
-// $answer = readline("В каком году был разработан JavaScript? ");
+// 1. do while
 
-// if ($answer == 1995) {
-//   echo "Правильно, Вы молодец!\n";
-// } else {
-//   echo "Не верно\n";
-// }
+do {
+  $answer = readline("В каком году был разработан JavaScript? Варианты: 1991, 1995, 1998 ");
+
+  if ($answer == 1995) {
+    echo "Правильно, Вы молодец!\n";
+    break;
+  } elseif ($answer == 1991 || $answer == 1998) {
+    echo "Не верно\n";
+  }
+} while (true);
+
+// 2. switch case
+
+do {
+  $answer = readline("В каком году был разработан JavaScript? Варианты: 1991, 1995, 1998 ");
+
+  switch ($answer) {
+    case "1995":
+      echo "Правильно, Вы молодец!\n";
+      break (2);
+    case "1991":
+    case "1998":
+      echo "Не верно!\n";
+  }
+} while (true);
+
+// 3. цикл с проверкой
+
+do {
+  $answer = readline("В каком году был разработан JavaScript? Варианты: 1991, 1995, 1998 ");
+} while ($answer != 1991 && $answer != 1995 && $answer != 1998);
+
+if ($answer == 1995) {
+  echo "Правильно, Вы молодец!\n";
+} else {
+  echo "Не верно!\n";
+}
 ?>
 
 <?php
