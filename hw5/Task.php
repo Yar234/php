@@ -28,7 +28,7 @@ class Task
     $this->priority = $priority;
     $this->isDone = false;
     $this->user = $user;
-    $this->$comments = $comments;
+    $this->comments = $comments;
   }
 
   /**

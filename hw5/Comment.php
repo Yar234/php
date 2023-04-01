@@ -8,9 +8,9 @@ class Comment
 
   public function __construct(User $author, Task $task, string $text)
   {
-    $this->$author = $author;
-    $this->$task = $task;
-    $this->$text = $text;
+    $this->author = $author;
+    $this->task = $task;
+    $this->text = $text;
   }
 
   /**
