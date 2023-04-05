@@ -11,11 +11,12 @@ class UserProvider
   public function getByUsernameAndPassword(
     string $username,
     string $password
-  ): ?string {
+  ): ?User {
     $expectedPassword = $this->accounts[$username] ?? null;
     if ($expectedPassword === $password) {
       return new User($username);
     }
+
     return null;
   }
 }

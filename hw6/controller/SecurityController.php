@@ -1,9 +1,11 @@
 <?php
 
+require_once 'model/UserProvider.php';
+require_once 'model/User.php';
+
 session_start();
 
-require_once 'model/UserProvider.php';
-
+// логика входа
 $error = null;
 if (isset($_POST['username'], $_POST['password'])) {
   ['username' => $username, 'password' => $password] = $_POST;
@@ -12,17 +14,26 @@ if (isset($_POST['username'], $_POST['password'])) {
   $user = $userProvider->getByUsernameAndPassword($username, $password);
 
   if ($user === null) {
-    $error = "Были введены неверные данные";
+    $error = "Были введены некоректные данные";
   } else {
     $_SESSION['user'] = $user;
-    header('Location: /');
-    exit;
+    header('Location: home.php');
+    die();
   }
 }
 
-if (isset($_SESSION['user'])) {
-  header('Location: /');
-  exit();
+
+// логика выхода
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+  unset($_SESSION['username']);
+  // unset($_SESSION['tasks']);
+  header("Location: index.php");
+  die();
 }
 
-require_once 'view/signin.php';
+$username = null;
+if (isset($_SESSION['username'])) {
+  $username = $_SESSION['username']->getUsername();
+}
+
+include "view/signin.php";

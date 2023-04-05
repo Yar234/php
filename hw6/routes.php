@@ -2,5 +2,8 @@
 
 return [
   'home' => 'controller/HomeController.php',
-  'security' => 'controller/SecurityController.php'
+  'second' => 'controller/SecondController.php',
+  'security' => 'controller/SecurityController.php',
+  'tasks' => 'controller/TasksController.php',
+  'guest' => 'controller/GuestController.php'
 ];

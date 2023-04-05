@@ -5,12 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная</title>
+  <title>Задачи</title>
 </head>
 
 <body>
-  <h1><?= $pageHeader ?></h1>
-  <?php include "menu.php" ?>
+  <h1>Задачи</h1>
+
+  <?php foreach ($tasks as $task) : ?>
+    <div>
+      <?= $task ?> Done
+    </div>
+  <?php endforeach ?>
 </body>
 
 </html>
