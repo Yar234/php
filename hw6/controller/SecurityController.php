@@ -26,9 +26,9 @@ if (isset($_POST['username'], $_POST['password'])) {
 // логика выхода
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
   unset($_SESSION['username']);
-  // unset($_SESSION['tasks']);
+  unset($_SESSION['tasks']);
   header("Location: index.php");
-  //   die();
+  die();
 }
 
 $username = null;
