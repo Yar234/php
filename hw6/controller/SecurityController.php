@@ -14,10 +14,10 @@ if (isset($_POST['username'], $_POST['password'])) {
   $user = $userProvider->getByUsernameAndPassword($username, $password);
 
   if ($user === null) {
-    $error = "Были введены некоректные данные";
+    $error = 'Пользователь с указанными учетными данными не найден';
   } else {
-    $_SESSION['user'] = $user;
-    header('Location: home.php');
+    $_SESSION['username'] = $user;
+    header("Location: index.php");
     die();
   }
 }
@@ -28,7 +28,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
   unset($_SESSION['username']);
   // unset($_SESSION['tasks']);
   header("Location: index.php");
-  die();
+  //   die();
 }
 
 $username = null;
