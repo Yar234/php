@@ -3,10 +3,10 @@
 class Product
 {
   private string $title;
-  private float $price;
-  private array $components;
+  private ?float $price;
+  private ?array $components;
 
-  public function __construct(string $title, float $price, array $components)
+  public function __construct(string $title, ?float $price, ?array $components)
   {
     $this->title = $title;
     $this->price = $price;
