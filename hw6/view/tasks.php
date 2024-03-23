@@ -32,12 +32,30 @@
 
   <ul>
     <?php foreach ($tasks as $key => $task) : ?>
-      <div>
-        <li><?= $task ?></li>
-        <a href="/?controller=tasks&action=done&key=<?= $key ?>">[Done]</a><br><br>
+      <div id="<?= $task->getId() ?>">
+        <li><?= $task->getDescription() ?></li>
+        <a href="/?controller=tasks&action=done&key=<?= $task->getId() ?>">[Done]</a><br><br>
+        <button class="done" data-id="<?= $task->getId() ?>">DONE</button>
+        <br><br>
       </div>
     <?php endforeach ?>
   </ul>
+
+  <script>
+    let buttons = document.querySelectorAll('.done');
+    buttons.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        let id = elem.getAttribute('data-id');
+        (
+          async () => {
+            const response = await fetch('/?controller=tasks&action=apidone&id=' + id);
+            const answer = await response.json();
+            document.getElementById(answer.task_id).remove();
+          }
+        )();
+      })
+    })
+  </script>
 </body>
 
 </html>
