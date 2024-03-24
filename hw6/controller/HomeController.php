@@ -9,9 +9,10 @@ $pageHeader = "Добро пожаловать в TODO";
 //   session_destroy();
 // }
 
-$username = null;
+
 if (isset($_SESSION['username'])) {
   $username = $_SESSION['username']->getUsername();
 }
+// $username = null;
 
-include "view/home.php";
+include "view/index.php";

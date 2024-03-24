@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'home' => 'controller/HomeController.php',
+  'index' => 'controller/HomeController.php',
   'second' => 'controller/SecondController.php',
   'security' => 'controller/SecurityController.php',
   'tasks' => 'controller/TasksController.php',

@@ -1,6 +1,6 @@
 <?php
 
-$controller = $_GET['controller'] ?? 'home';
+$controller = $_GET['controller'] ?? 'index';
 $routes = require 'routes.php';
 
 try {
