@@ -28,7 +28,7 @@ if (isset($_POST['username'], $_POST['password'])) {
   } else {
     $_SESSION['user'] = $user;
     $_SESSION['id'] = $user->getId();
-    header("Location: index.php");
+    header("Location: tasks.php");
     die();
   }
 }
